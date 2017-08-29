@@ -30,8 +30,8 @@ $(document).ready(function() {
 		$(".promo-slider").not(".slick-initialized").slick({
 			dots: false,
 			arrows: false,      
-			// autoplay: true,
-			autoplaySpeed: 3000,
+			autoplay: true,
+			autoplaySpeed: 10000,
 			speed: 1200,
 			slidesToShow: 1,
 			fade: true,
