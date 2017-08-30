@@ -95,6 +95,47 @@ $(document).ready(function() {
 
     });
 
+    $(function() {
+
+        var parentSlidePopup;
+
+        $(".show-slide-popup").click(function() {
+
+            parentSlidePopup = $(this).closest(".slide-popup");
+
+            if( parentSlidePopup.find(".hidden-block").is(":hidden") ) {
+
+                parentSlidePopup.addClass("active");
+
+                parentSlidePopup.find(".hidden-block").fadeIn(300);
+
+                parentSlidePopup.find(".visible-block").css({
+                    "display" : "none"
+                });
+            }
+
+        });
+
+        $(".hide-slide-popup").click(function() {
+
+            parentSlidePopup = $(this).closest(".slide-popup");
+
+            if( parentSlidePopup.find(".hidden-block").is(":visible") ) {
+
+                parentSlidePopup.removeClass("active");
+
+                parentSlidePopup.find(".hidden-block").css({
+                    "display" : "none"
+                });
+
+                parentSlidePopup.find(".visible-block").fadeIn(300);
+
+            }
+
+        });
+
+    });
+
 
     function getFooterPosition() {
 
