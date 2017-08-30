@@ -167,7 +167,7 @@ $(document).ready(function() {
 
             if( headerSiteTopCoord >= slidePageTopCoord ) {                
 
-                if( !$(this).hasClass("light-nav") ) {
+                if( !$(this).hasClass("light-nav") || $(this).hasClass("show-logo")) {
 
                     headerSite.addClass("inner_page");
 

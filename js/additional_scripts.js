@@ -10,6 +10,9 @@
 
 $(document).ready(function() {
 
+	var sliderAppendDots;
+	var initDots;
+
 	if( $(".promo-backgrounds-slider").length > 0 ) {
 		
 		$(".promo-backgrounds-slider").not(".slick-initialized").slick({
@@ -44,7 +47,7 @@ $(document).ready(function() {
 
 		$(".articles_slider").each(function() {
 
-			var sliderParent = $(this).closest(".articles_slider_block");
+			// var sliderParent = $(this).closest(".articles_slider_block");
 
 			var sliderName = $(this).attr("data-slider");
 
@@ -52,10 +55,22 @@ $(document).ready(function() {
 
 			var sliderAppendArrows = $(".slider-pagination[data-slider = '"+ sliderName +"'] .append-arrows");
 
+			if( $(".dots-pagination-append[data-slider = '"+ sliderName +"']").length > 0   ) {
+
+				sliderAppendDots = $(".dots-pagination-append[data-slider = '"+ sliderName +"']");
+				initDots = true;
+
+			} else {
+
+				sliderAppendDots = false;
+				initDots = false;
+			}
+
 			$(this).not(".slick-initialized").slick({
-				dots: false,
+				dots: initDots,
 				arrows: true,
 				appendArrows : sliderAppendArrows,
+				appendDots : sliderAppendDots,
 				// autoplay: true,
 				autoplaySpeed: 10000,
 				speed: 1200,
@@ -65,7 +80,7 @@ $(document).ready(function() {
 
 			if( $(this).not(".slick-initialized") ) {
 
-				var slideCurrent = sliderParent.find(".slick-current").attr("data-slick-index");
+				var slideCurrent = $(this).find(".slick-current").attr("data-slick-index");
 
 				$(".slider-pagination[data-slider = '"+ sliderName +"'] .total-slides").text(countSlides);
 
@@ -89,6 +104,30 @@ $(document).ready(function() {
 
 		});
 
+		if($(".range-pagination .slick-dots").length > 0) {
+
+			$(".range-pagination .slick-dots").each(function() {
+
+				var dotsItemsParent = $(this).closest(".range-pagination");
+
+				var dotsItems = $(this).find("li");
+
+				var startYear = parseInt( dotsItemsParent.attr("data-start") );
+
+				dotsItems.each(function() {
+
+					$(this).attr("data-year", startYear++);
+
+					var itemYear = $(this).attr("data-year");
+
+					$(this).prepend("<span class='item-year'>"+ itemYear +"</span>");
+
+				});
+
+			});
+
+		}
+
 	}
 
 
@@ -97,6 +136,10 @@ $(document).ready(function() {
 		$(".inner_slider").each(function() {
 
 			var bigSlider = $(this).find(".article-inner-slider");
+
+			var sliderName = $(this).attr("data-slider");
+
+			var sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
 
 			var miniaturesSlider = $(this).find(".article-inner-miniatures-slider");
 
@@ -127,5 +170,69 @@ $(document).ready(function() {
 		});
 
 	}
+
+
+
+	if($(".news-big-slider").length > 0) {
+
+		$(".news-big-slider").each(function() {
+
+			var sliderName = $(this).attr("data-slider");
+
+			var sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
+
+			var miniatureSlider = $(".news-miniatures-slider[data-slider = '"+ sliderName +"']");
+
+			var countSlides = $(this).find(".slide").length;
+
+			$(this).not(".slick-initialized").slick({
+				dots: false,
+				arrows: true,
+				autoplay: true,
+				// draggable : false,
+				autoplaySpeed: 10000,
+				speed: 1200,
+				slidesToShow: 1,
+				fade: true,
+				appendArrows: sliderAppendArrows,
+				asNavFor : $(".news-miniatures-slider")
+			});
+
+			miniatureSlider.not(".slick-initialized").slick({
+				dots: false,
+				arrows: false,
+				autoplay: true,
+				autoplaySpeed: 10000,
+				speed: 1200,
+				vertical: true,
+				draggable: true,
+				slidesToShow: 3,
+				slidesToScroll : 1,
+				focusOnSelect: true,
+				asNavFor : $(".news-big-slider")
+			});
+
+			if( $(this).not(".slick-initialized") ) {
+
+				var slideCurrent = $(this).find(".slick-current").attr("data-slick-index");
+
+				$(".count-slides-block[data-slider = '"+ sliderName +"'] .total-slides").text(countSlides);
+
+				$(".count-slides-block[data-slider = '"+ sliderName +"'] .current-slide").text(+slideCurrent + 1);
+
+			}
+
+		});
+
+		$(".news-big-slider").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+
+			var sliderName = $(this).attr("data-slider");
+
+			$(".count-slides-block[data-slider = '"+ sliderName +"'] .current-slide").text(+nextSlide + 1);
+
+		});
+
+	}
+
 
 });
