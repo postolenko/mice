@@ -198,47 +198,51 @@ $(document).ready(function() {
 
     function getHeaderSiteStyles() {
 
-        headerSiteTopCoord = headerSite.offset().top;
+        if( $(".header-site").length > 0 ) {
 
-        headerSiteBottomCoord = headerSite.offset().top + $(window).height();
+            headerSiteTopCoord = headerSite.offset().top;
 
-        $(".slide-page").each(function() {
+            headerSiteBottomCoord = headerSite.offset().top + $(window).height();
 
-            slidePageTopCoord = $(this).offset().top;
+            $(".slide-page").each(function() {
 
-            if( headerSiteTopCoord >= slidePageTopCoord ) {                
+                slidePageTopCoord = $(this).offset().top;
 
-                if( !$(this).hasClass("light-nav") || $(this).hasClass("show-logo")) {
+                if( headerSiteTopCoord >= slidePageTopCoord ) {                
 
-                    headerSite.addClass("inner_page");
+                    if( !$(this).hasClass("light-nav") || $(this).hasClass("show-logo")) {
 
-                    countPages.addClass("inner_page");
+                        headerSite.addClass("inner_page");
 
-                } else {
+                        countPages.addClass("inner_page");
 
-                    headerSite.removeClass("inner_page");
+                    } else {
 
-                    countPages.removeClass("inner_page");
+                        headerSite.removeClass("inner_page");
+
+                        countPages.removeClass("inner_page");
+
+                    }
 
                 }
 
-            }
+                // if( headerSiteTopCoord < slidePageTopCoord + countPages.height() ) {
 
-            // if( headerSiteTopCoord < slidePageTopCoord + countPages.height() ) {
+                //      if( !$(this).hasClass("light-nav") ) {
 
-            //      if( !$(this).hasClass("light-nav") ) {
+                //         countPages.addClass("inner_page");
 
-            //         countPages.addClass("inner_page");
+                //     } else {
 
-            //     } else {
+                //         countPages.removeClass("inner_page");
 
-            //         countPages.removeClass("inner_page");
+                //     }
 
-            //     }
+                // }
 
-            // }
+            });
 
-        });
+        }
 
 
     }
