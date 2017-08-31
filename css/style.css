@@ -3540,7 +3540,7 @@ header {
     content: "";
     width: 40px;
     height: 1px;
-    margin: -4px 2px 0 4px;
+    margin: 0 2px 4px 4px;
     background: rgb(125, 125, 125);
 }
 
