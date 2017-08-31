@@ -3471,7 +3471,6 @@ header {
 }
 
 .gallery-slider .slide {
-    cursor: pointer;
     left: 0;
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
