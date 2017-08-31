@@ -908,8 +908,10 @@ header {
 
 .slide-page {
     position: relative;
-    /*outline: 1px solid red;*/
-    /*overflow: hidden;*/
+/*    display: flex;
+    -webkit-display: flex;
+    align-items: center;
+    justify-content: center;*/
 }
 
 .slide-page.slide-left-bg:before {
@@ -3538,7 +3540,7 @@ header {
     content: "";
     width: 40px;
     height: 1px;
-    margin: 0 2px 0 4px;
+    margin: -4px 2px 0 4px;
     background: rgb(125, 125, 125);
 }
 
@@ -3864,6 +3866,10 @@ header {
 /*-- 404 Page --*/
 
 .page-not-found {
+    display: flex;
+    -webkit-display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
     background-image: url(../img/404_bg.jpg);
     background-size: cover;
@@ -3874,13 +3880,13 @@ header {
 
 }
 
-.center:before {
+/*.center:before {
     display: inline-block;
     vertical-align: middle;
     content: "";
     width: 1%;
     min-height: 100vh;
-}
+}*/
 
 .center-block {
     display: inline-block;
