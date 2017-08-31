@@ -38,6 +38,8 @@ $(document).ready(function() {
 
     getMapSize();
 
+    setScrollCoord();
+
     $(window).resize(function() {
 
         bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
@@ -135,6 +137,25 @@ $(document).ready(function() {
         });
 
     });
+
+
+    function setScrollCoord() {
+
+        var linkContactsHref = location.href.split("#");
+
+        var linkContacts = linkContactsHref[linkContactsHref.length - 1];
+
+        if( linkContacts == "contacts" && $("#" + linkContacts).length > 0 ) {
+
+            $("body,html").scrollTop( $("#contacts").offset().top );
+
+            getHeaderSiteStyles();
+
+            return false;
+
+        }
+
+    }
 
 
     function getFooterPosition() {
@@ -247,7 +268,6 @@ $(document).ready(function() {
 
     }
 
-
     function getMapSize() {
 
         var getMapSizeInterval = setInterval(function() {
@@ -265,6 +285,5 @@ $(document).ready(function() {
         }, 35);
 
     }
-
 
 });

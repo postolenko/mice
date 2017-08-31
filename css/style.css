@@ -2320,7 +2320,8 @@ header {
 .contacts-logo-block {
     display: block;
     width: 75%;
-    padding: 46px 0 51px 0;
+    /*padding: 46px 0 51px 0;*/
+    padding: 78px 0 51px 0;
     text-align: center;
 }
 
