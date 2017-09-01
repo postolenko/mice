@@ -40,6 +40,12 @@ $(document).ready(function() {
 
     setScrollCoord();
 
+    setTimeout(function() {
+
+        getContentCenterPosition();
+
+    }, 500);    
+
     $(window).resize(function() {
 
         bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
@@ -51,6 +57,8 @@ $(document).ready(function() {
         getSiteNavPosition();
 
         getHeaderSiteStyles();
+
+        getContentCenterPosition();
 
         // getMapSize();
 
@@ -163,7 +171,7 @@ $(document).ready(function() {
         $(".slide-page").each(function() {            
 
             slideFooter = $(this).find(".footer");
-            // headerSite = $(".header-site");
+            headerSite = $(".header-site");
 
             $(this).css({"min-height" : $(window).height() + "px"});
 
@@ -265,7 +273,6 @@ $(document).ready(function() {
 
         }
 
-
     }
 
     function getMapSize() {
@@ -283,6 +290,37 @@ $(document).ready(function() {
             }
 
         }, 35);
+
+    }
+
+    function getContentCenterPosition() {
+
+        $(".slide-page").each(function() {
+
+            var centerBlock = $(this).find(".center");
+
+            var windowHeight = $(window).height();
+
+            var contentHeight = centerBlock.height();
+
+            // if( centerBlock.offset().top >= ( $(".header-site").offset().top + $(".header-site").height() ) ) {
+
+            //     var centerBlockOffsetTop = $(".header-site").height();
+
+            // } else {
+
+                var centerBlockOffsetTop = ( windowHeight - contentHeight ) / 2;
+
+            // }                
+
+            centerBlock.css({
+
+                "padding-top" : centerBlockOffsetTop  + "px"
+
+            });
+
+
+        });
 
     }
 
