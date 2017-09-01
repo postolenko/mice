@@ -166,15 +166,11 @@ $(document).ready(function() {
 
 	function getActiveSlide(indexLinkPage, scrollEvent) {
 
-		console.log( scrollEvent + "  153");
-
 		if( $(".slide-page:eq("+ indexLinkPage +")").hasClass("current-slide-page") && $(".slide-page:eq("+ indexLinkPage +")").attr("data-slide-page-index") == indexLinkPage ) {
 
 			return false;
 
 		} else {
-
-			console.log(indexLinkPage + "   177");
 
 			$(".slide-page").each(function() {
 
@@ -209,10 +205,6 @@ $(document).ready(function() {
 			}, 800);
 
 			setTimeout(function() {
-
-				getHeaderSiteStyles();
-
-				console.log(indexLinkPage + "   215");
 
 				$(".slide-page").each(function() {
 
@@ -256,10 +248,6 @@ $(document).ready(function() {
 
 			});
 
-			// scrollEvent = 0;
-
-			console.log( scrollEvent + "  251");
-
 			if(indexLinkPage <= 9) {
 
 				currentSlideNum = parseInt(indexLinkPage) + 1;
@@ -272,62 +260,22 @@ $(document).ready(function() {
 
 			}
 
+			if( $(".slide-page:eq("+ indexLinkPage +")").hasClass("light-nav")) {
+
+				headerSite.removeClass("inner_page");
+                countPages.removeClass("inner_page");
+
+            } else {
+
+                headerSite.addClass("inner_page");
+                countPages.addClass("inner_page");
+
+            }
 
 
 		}
 
 	}
-
-
-	function getHeaderSiteStyles() {
-
-        if( $(".header-site").length > 0 ) {
-
-            headerSiteTopCoord = headerSite.offset().top;
-
-            headerSiteBottomCoord = headerSite.offset().top + $(window).height();
-
-            $(".slide-page").each(function() {
-
-                slidePageTopCoord = $(this).offset().top;
-
-                if( headerSiteTopCoord >= slidePageTopCoord ) {
-
-                    if( $(this).hasClass("light-nav") && $(this).hasClass("current-slide-page")) {
-
-                       headerSite.removeClass("inner_page");
-
-                       countPages.removeClass("inner_page");
-
-                    } else {                        
-
-                        headerSite.addClass("inner_page");
-
-                        countPages.addClass("inner_page");
-
-                    }
-
-                }
-
-                // if( headerSiteTopCoord < slidePageTopCoord + countPages.height() ) {
-
-                //      if( !$(this).hasClass("light-nav") ) {
-
-                //         countPages.addClass("inner_page");
-
-                //     } else {
-
-                //         countPages.removeClass("inner_page");
-
-                //     }
-
-                // }
-
-            });
-
-        }
-
-    }
 	
 
 });

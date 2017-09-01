@@ -237,21 +237,29 @@ $(document).ready(function() {
 
                 slidePageTopCoord = $(this).offset().top;
 
-                if( headerSiteTopCoord >= slidePageTopCoord ) {                
+                if( headerSiteTopCoord >= slidePageTopCoord ) {
 
-                    if( !$(this).hasClass("light-nav") || $(this).hasClass("show-logo")) {
+                    console.log($(this).attr("data-slide-page-index"));
 
-                        headerSite.addClass("inner_page");
-
-                        countPages.addClass("inner_page");
-
-                    } else {
+                    if( $(this).hasClass("light-nav") ) {                        
 
                         headerSite.removeClass("inner_page");
 
                         countPages.removeClass("inner_page");
 
+                        return false;                      
+
+                    } else {
+
+                        headerSite.addClass("inner_page");
+
+                        countPages.addClass("inner_page");
+
+                        return false;
+
                     }
+
+                    
 
                 }
 
