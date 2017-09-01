@@ -52,6 +52,18 @@ $(document).ready(function() {
 
 			linkSlidetempl = "<li><a href='#' class='active' data-page-index = "+ pageIndex +"></a></li>";
 			
+			if( $(this).hasClass("light-nav")) {
+
+				headerSite.removeClass("inner_page");
+                countPages.removeClass("inner_page");
+
+            } else {
+
+                headerSite.addClass("inner_page");
+                countPages.addClass("inner_page");
+
+            }
+
 
 		} else {
 

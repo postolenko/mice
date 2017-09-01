@@ -155,11 +155,25 @@ $(document).ready(function() {
 
         if( linkContacts == "contacts" && $("#" + linkContacts).length > 0 ) {
 
-            $("body,html").scrollTop( $("#contacts").offset().top );
+            $(".slide-page").each(function(){
 
-            getHeaderSiteStyles();
+                if( $(this).attr("id") == linkContacts ) {
 
-            return false;
+                    $(this).addClass("active");
+
+                } else {
+
+                    $(this).removeClass("active");
+
+                }
+
+            });
+
+            // $("body,html").scrollTop( $("#contacts").offset().top );
+
+            // getHeaderSiteStyles();
+
+            // return false;
 
         }
 
@@ -239,15 +253,11 @@ $(document).ready(function() {
 
                 if( headerSiteTopCoord >= slidePageTopCoord ) {
 
-                    console.log($(this).attr("data-slide-page-index"));
-
                     if( $(this).hasClass("light-nav") ) {                        
 
                         headerSite.removeClass("inner_page");
 
                         countPages.removeClass("inner_page");
-
-                        return false;                      
 
                     } else {
 
@@ -255,27 +265,9 @@ $(document).ready(function() {
 
                         countPages.addClass("inner_page");
 
-                        return false;
-
-                    }
-
-                    
+                    }                    
 
                 }
-
-                // if( headerSiteTopCoord < slidePageTopCoord + countPages.height() ) {
-
-                //      if( !$(this).hasClass("light-nav") ) {
-
-                //         countPages.addClass("inner_page");
-
-                //     } else {
-
-                //         countPages.removeClass("inner_page");
-
-                //     }
-
-                // }
 
             });
 
