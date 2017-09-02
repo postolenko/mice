@@ -1781,7 +1781,11 @@ header {
     font-size: 19px;
     line-height: 19px;
     font-weight: normal;
-    color: #353535;    
+    color: #353535;
+}
+
+.accordeon li span {
+    cursor: pointer;
 }
 
 .slide_list_btn {
@@ -3344,6 +3348,7 @@ header {
 
 .create-nav-list li {
     padding: 15px 0;
+    cursor: pointer;
 }
 
 .create-nav-list a {
