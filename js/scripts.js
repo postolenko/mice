@@ -142,18 +142,7 @@ $(document).ready(function() {
 
     $(function() {
 
-        var accordeonItemList;
-        // var btnTeml = "<button class='slide_list_btn' ></button>";
-
-        // $(".accordeon li").each(function() {
-
-        //     if( $(this).children("ul").length > 0 ) {
-
-        //         $(this).append(btnTeml);
-
-        //     }
-
-        // });        
+        var accordeonItemList;    
 
         $(".accordeon").each(function() {
 
@@ -208,9 +197,7 @@ $(document).ready(function() {
 
                     accordeonItemParent.addClass("active-list");
 
-                    var listItems = accordeonItemParent.children("li");
-
-                    // itemParent = $(this).closest("li");              
+                    var listItems = accordeonItemParent.children("li");         
 
                     listItems.each(function() {
 
