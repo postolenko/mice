@@ -32,8 +32,6 @@ $(document).ready(function() {
 
     getFooterPosition();
 
-    getSiteNavPosition();
-
     getHeaderSiteStyles();
 
     getMapSize();
@@ -44,7 +42,7 @@ $(document).ready(function() {
 
         getContentCenterPosition();
 
-    }, 500);    
+    }, 500);
 
     $(window).resize(function() {
 
@@ -54,13 +52,9 @@ $(document).ready(function() {
 
         getFooterPosition();
 
-        getSiteNavPosition();
-
         getHeaderSiteStyles();
 
         getContentCenterPosition();
-
-        // getMapSize();
 
         // ------------------------------------
 
@@ -85,8 +79,6 @@ $(document).ready(function() {
         $(".three-cols-article").each(function() {
 
             var hBlock = $(this).find(".h-block");
-
-            console.log(hBlock.offset().top);
 
         });
 
@@ -146,6 +138,99 @@ $(document).ready(function() {
 
     });
 
+    // -- Accordeon --
+
+    $(function() {
+
+        var accordeonItemList;
+        var btnTeml = "<button class='slide_list_btn' ></button>";
+
+        $(".accordeon li").each(function() {
+
+            if( $(this).children("ul").length > 0 ) {
+
+                $(this).append(btnTeml);
+
+            }
+
+        });        
+
+        $(".accordeon").each(function() {
+
+            var accordeonItem = $(this).find("li");
+
+            accordeonItem.each(function() {
+
+                accordeonItemList = $(this).children("ul");
+
+                if( $(this).hasClass("active") ) {
+
+                    accordeonItemList.slideDown(300);
+
+                } else {
+
+                    accordeonItemList.slideUp(300);
+
+                }
+
+            });
+
+        });
+
+
+        $(".accordeon li .slide_list_btn").click(function(e) {
+
+            e.preventDefault();
+
+            itemParent = $(this).closest("li");
+
+            if( itemParent.children("ul").is(":visible" ) ) {
+
+                itemParent.children("ul").slideUp(400);
+
+                itemParent.removeClass("active");
+
+            } else {
+
+                var accordeonItemParent = $(this).closest("ul");
+
+                accordeonItemParent.addClass("active-list");
+
+                var listItems = accordeonItemParent.children("li");
+
+
+                itemParent = $(this).closest("li");
+                itemParent.addClass("active-item");
+
+                listItems.each(function() {
+
+                    if( $(this).hasClass("active-item") ) {
+
+                        $(this).children("ul").slideDown(400);
+
+                        $(this).addClass("active");
+
+                    } else {
+
+                        $(this).children("ul").slideUp(400);
+
+                        $(this).removeClass("active");
+
+                    }
+
+                });
+
+                accordeonItemParent.removeClass("active-list");
+                itemParent.removeClass("active-item");
+
+            }
+
+        });
+
+    });
+
+    // -- /Accordeon --
+
 
     function setScrollCoord() {
 
@@ -168,12 +253,6 @@ $(document).ready(function() {
                 }
 
             });
-
-            // $("body,html").scrollTop( $("#contacts").offset().top );
-
-            // getHeaderSiteStyles();
-
-            // return false;
 
         }
 
@@ -225,17 +304,6 @@ $(document).ready(function() {
             }, 35);
 
         });
-
-    }
-
-    function getSiteNavPosition() {
-
-        // siteNavRightCoord = $(".right-coord").offset().left + $(".right-coord").width() - $(".site-nav-block").width()
-
-        // $(".site-nav-block").css({
-        //     "padding-top" :  headerSite.height() + "px",
-        //     "left" : siteNavRightCoord  + "px" 
-        // });
 
     }
 
@@ -303,15 +371,7 @@ $(document).ready(function() {
 
             var contentHeight = centerBlock.height();
 
-            // if( centerBlock.offset().top >= ( $(".header-site").offset().top + $(".header-site").height() ) ) {
-
-            //     var centerBlockOffsetTop = $(".header-site").height();
-
-            // } else {
-
-                var centerBlockOffsetTop = ( windowHeight - contentHeight ) / 2;
-
-            // }                
+            var centerBlockOffsetTop = ( windowHeight - contentHeight ) / 2;             
 
             centerBlock.css({
 

@@ -6,84 +6,75 @@ $(document).ready(function() {
 
 	var headerSite = $(".header-site");
     var countPages = $(".page-num-block");
-    var headerSiteTopCoord;
-    var headerSiteBottomCoord;
 
+    var activeSlideIndex;
     var currentSlideNum;
 
     var scrollEvent = 0;
 
+    var pageSlideLink;
+
+    var contactsPage = "about";
+    var linkContactsId = "contacts";
+
 	var countSlidePages = $(".slide-page").length;
+
+	// -------------------------------
 	
 	$(".slide-page").each(function() {
 
 		$(this).css({
 			"height" : $(window).height() + "px",
-			"position" : "absolute"
+			"position" : "absolute",
+			"opacity" : .1,
+			"z-index" : 1
 		});
 
 		$(this).attr("data-slide-page-index", pageIndex);
 
-		if( $(this).hasClass("active") ) {
-
-			$(this).css({
-				"opacity" : 1
-			});
-
-			$(this).css({
-				"z-index" : 3
-			});
-
-			$(this).addClass("current-slide-page")
-
-			if(pageIndex <= 9) {
-
-				currentSlideNum = parseInt(pageIndex)+ 1;
-
-				$(".current-page").text("0" + currentSlideNum.toString());
-
-			} else {
-
-				currentSlideNum = pageIndex;
-
-				$(".current-page").text(currentSlideNum.toString());
-
-			}
-
-			linkSlidetempl = "<li><a href='#' class='active' data-page-index = "+ pageIndex +"></a></li>";
-			
-			if( $(this).hasClass("light-nav")) {
-
-				headerSite.removeClass("inner_page");
-                countPages.removeClass("inner_page");
-
-            } else {
-
-                headerSite.addClass("inner_page");
-                countPages.addClass("inner_page");
-
-            }
-
-
-		} else {
-
-			$(this).css({
-				"opacity" : .1
-			});
-
-			$(this).css({
-				"z-index" : 1
-			});
-
-			linkSlidetempl = "<li><a href='#' data-page-index = "+ pageIndex +"></a></li>";
-
-		}
-
-		$(".site-nav").append(linkSlidetempl);
-
 		pageIndex++;
 
 	});
+
+	// -------------------------------
+
+	$(".slide-page").each(function() {
+
+		if( $(this).hasClass("active") ) {
+
+			activeSlideIndex = parseInt( $(this).attr("data-slide-page-index") );
+
+			return false;
+
+		} else {
+
+			activeSlideIndex = 0;
+
+			return true;
+
+		}
+
+	});
+
+	$(".slide-page").eq(activeSlideIndex).css({
+		"opacity" : 1,
+		"z-index" : 3
+	});
+
+	$(".slide-page").eq(activeSlideIndex).addClass("current-slide-page");
+
+	if(activeSlideIndex <= 9) {
+
+		currentSlideNum = "0" + (activeSlideIndex+ 1).toString();
+
+	} else {
+
+		currentSlideNum = activeSlideIndex.toString();
+
+	}
+
+	$(".current-page").text(currentSlideNum);
+
 
 	if(countSlidePages <= 9) {
 
@@ -95,6 +86,47 @@ $(document).ready(function() {
 
 	}
 
+	// ---------------------------------
+
+	$(".slide-page").each(function() {
+
+		pageIndex = parseInt( $(this).attr("data-slide-page-index") );
+
+		if( $(this).hasClass("current-slide-page") ) {
+
+			linkSlidetempl = "<li><a href='#' class='active' data-page-index = "+ pageIndex +"></a></li>";
+
+		} else {
+
+			linkSlidetempl = "<li><a href='#' data-page-index = "+ pageIndex +"></a></li>";
+
+		}
+
+		$(".site-nav").append(linkSlidetempl);
+
+	});
+
+	$(".slide-page").each(function() {
+
+		if( $(this).hasClass("light-nav") && $(this).hasClass("current-slide-page") ) {
+
+			headerSite.removeClass("inner_page");
+            countPages.removeClass("inner_page");
+
+            return false;
+
+        } else {
+
+            headerSite.addClass("inner_page");
+            countPages.addClass("inner_page");
+
+            return true;
+
+        }
+
+     });
+	
+	// -----------------------------------------
 
 	$(".site-nav a").click(function(linkEvent) {
 
@@ -102,14 +134,50 @@ $(document).ready(function() {
 
 		indexLinkPage = $(this).attr("data-page-index");
 
-		getActiveSlide(indexLinkPage, scrollEvent)
+		getActiveSlide(indexLinkPage);
 
 	});
 
+	$("a.contacts-link").click(function(linkEvent) {
 
-	 $(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e) {	 		
+		var linkContactsHref = location.href;
 
-	 	console.log(scrollEvent + "   100");	 		
+		var firstIndex = linkContactsHref.lastIndexOf("/");
+
+		var lastIndex = linkContactsHref.lastIndexOf(".");
+
+		var linkContacts = linkContactsHref.substring(lastIndex, firstIndex+1);
+
+		console.log(linkContacts);
+
+        if( linkContacts == contactsPage ) {
+
+	        linkEvent.preventDefault();
+
+	        if( $("#" + linkContactsId).length > 0 ) {
+
+				$(".slide-page").each(function(){
+
+			        if( $(this).attr("id") == "contacts" ) {
+
+			            indexLinkPage = $(this).attr("data-slide-page-index");
+
+			            getActiveSlide(indexLinkPage);
+
+			            return false;
+
+			        }
+
+			    });
+
+			}
+
+		}
+
+    });
+
+
+	$(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e) {
 
 	 	scrollEvent++;
 
@@ -141,16 +209,13 @@ $(document).ready(function() {
 
 					}
 
-					getActiveSlide(indexLinkPage.toString(), scrollEvent);
-					console.log("Up");
+					getActiveSlide(indexLinkPage.toString());
 
 				}, 600);
 
 		    } else {		    		    	
 
 				setTimeout(function() {
-
-					console.log(indexLinkPage);
 
 					scrollEvent = 0;
 
@@ -164,8 +229,7 @@ $(document).ready(function() {
 
 					}
 
-					getActiveSlide(indexLinkPage.toString(), scrollEvent);
-					console.log("Down");
+					getActiveSlide(indexLinkPage.toString());
 
 				}, 600);
 
@@ -176,7 +240,7 @@ $(document).ready(function() {
 	 });
 
 
-	function getActiveSlide(indexLinkPage, scrollEvent) {
+	function getActiveSlide(indexLinkPage) {
 
 		if( $(".slide-page:eq("+ indexLinkPage +")").hasClass("current-slide-page") && $(".slide-page:eq("+ indexLinkPage +")").attr("data-slide-page-index") == indexLinkPage ) {
 
@@ -222,8 +286,6 @@ $(document).ready(function() {
 
 					if( $(this).attr("data-slide-page-index") == indexLinkPage.toString() ){
 
-						console.log(indexLinkPage + "   219");
-
 						$(this).addClass("current-slide-page");
 
 						$(this).css({"z-index" : 3});
@@ -244,7 +306,7 @@ $(document).ready(function() {
 
 			}, 1000);
 
-			var pageSlideLink = $(".site-nav").find("a");
+			pageSlideLink = $(".site-nav").find("a");
 
 			pageSlideLink.each(function() {
 
@@ -283,7 +345,6 @@ $(document).ready(function() {
                 countPages.addClass("inner_page");
 
             }
-
 
 		}
 

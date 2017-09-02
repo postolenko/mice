@@ -1752,32 +1752,73 @@ header {
 
 }
 
+.accordeon li {
+    /*cursor: pointer;*/
+}
+
 .left-nav-block-list ul {
-    margin: 0 0 0 9%;
     padding: 0 0 0 2px;
 }
 
 .left-nav-block-list li {
+    position: relative;
+    padding: 19px 0 1px 15px;
     font-family: "Bliss Pro", Arial, Verdana, sans-serif;
     font-size: 19px;
     line-height: 19px;
     font-weight: normal;
+    color: #353535;    
+}
+
+.accordeon ul {
+    padding: 0 0 0 2px;
+}
+
+.accordeon li {
+    position: relative;
+    padding: 19px 0 1px 15px;
+    font-family: "Bliss Pro", Arial, Verdana, sans-serif;
+    font-size: 19px;
+    line-height: 19px;
+    font-weight: normal;
+    color: #353535;    
+}
+
+.slide_list_btn {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 20px;
+    left: -5px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    text-align: center;
+    width: 15px;
+    height: 19px;
+    font-family: "Bliss Pro", Arial, Verdana, sans-serif;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: normal;
     color: #353535;
 }
 
-.left-nav-block-list li span {
-    display: inline-block;
-    vertical-align: top;
-    padding: 10px 0;
-}
-
-.left-nav-block-list li span:before {
+.slide_list_btn:before {
     display: inline-block;
     vertical-align: middle;
-    content: "\2012";
+    content: "\2B";
     position: relative;
-    top: -3px;
-    margin: 0 5px 0 0;
+    top: -12px;
+    right: 1px;
+}
+
+.accordeon li.active > .slide_list_btn:before {
+    content: "\2D";
+    font-size: 39px;
+    line-height: 39px;
+    top: -15px;
+    right: 0;
 }
 
 .left-nav-block-list li a {
@@ -1788,7 +1829,6 @@ header {
     line-height: 19px;
     font-weight: normal;
     color: #353535;
-    margin: 10px 0;
     border-bottom: 1px solid transparent;
 }
 
@@ -3354,6 +3394,24 @@ header {
     padding-right: 3.6%;
 }
 
+.create-nav-list li.active {
+    border-top: 1px solid #dfdfdf;
+}
+
+.create-nav-list li.active > a {
+    color: #5d8da5;
+    padding-right: 3.6%;
+    border-bottom: 1px solid #5d8da5;
+}
+
+.create-nav-list li.active > ul {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.create-nav-list li ul li {
+    padding: 5px 0;
+}
+
 .create-nav-list a:after {
     display: block;
     content: "";
@@ -3399,6 +3457,11 @@ header {
 
 .create-nav-list a:hover:after {
     opacity: 1;
+}
+
+.create-nav-list li .slide_list_btn {
+    position: absolute;
+    left: -12px;
 }
 
 /*-- Galery --*/
