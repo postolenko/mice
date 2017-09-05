@@ -31,10 +31,11 @@
 
 	/*-- /Slide 4 --*/
 
+
 }
 
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1340px) {
 
 	/*-- Slide 1 --*/
 
@@ -127,6 +128,18 @@
 
 	.slide-5-h-block {
 	    left: -8px;
+		top: initial;
+		bottom: 36px;
+	}
+
+	.slide-5-h-block h2 {
+	    font-size: 75px;
+	    line-height: 75px;
+	}
+
+	.h-block h2 span.small {
+	    font-size: 42px;
+	    line-height: 46px;
 	}
 
 	.slide-5-shape:before {
@@ -150,6 +163,10 @@
 	.team-thumbnails .thumbnail .img-box {
 	    max-width: 86%;
 	    max-height: 86%;
+	}
+
+	.team-thumbnails .thumbnail.th-4 .thumb-title {
+	    bottom: 10px;
 	}
 
 	.team-thumbnails .thumbnail.th-6 {
@@ -191,7 +208,6 @@
 	/*-- /Slide 6 --*/
 
 }
-
 
 @media only screen and (max-width: 1024px) {
 
@@ -338,6 +354,16 @@
 
 	/*-- Slide 5 --*/
 
+	.slide-5-h-block h2 {
+	    font-size: 60px;
+	    line-height: 65px;
+	}
+
+	.h-block h2 span.small {
+	    font-size: 38px;
+	    line-height: 39px;
+	}
+
 	.team-thumbnails {
 	    padding: 12px 0 0 0;
 	}
@@ -453,7 +479,6 @@
 
 }
 
-
 @media only screen and (max-width: 800px) {
 
 	h1 {
@@ -469,6 +494,14 @@
 	    top: 121%;
 	}
 
+	.main-nav {
+	    margin-right: -8px;
+	}
+
+	.main-nav li {
+	    padding: 0 7px;
+	}
+
 	/*-- Slide 1 --*/
 
 	.promo-thumbs {
@@ -477,6 +510,10 @@
 
 	.promo-thumbs li {
 	    padding: 7px 9px;
+	}
+
+	.site-nav li {
+	    padding: 3px 0 4px 0;
 	}
 
 	/*-- .Slide 1 --*/
@@ -524,6 +561,15 @@
 	.more-link {
 	    font-size: 16px;
 	    line-height: 18px;
+	}
+
+	.h-block h2 {
+	    font-size: 52px;
+	    line-height: 62px;
+	}
+
+	.articles-slider .article .more-link {
+	    margin-top: 4px;
 	}
 
 	/*-- /Slide 2 --*/
@@ -608,6 +654,26 @@
 
 	/*-- /Slide 4 --*/
 
+	/*-- Slide 5 --*/
+
+	.slide-5-h-block {
+	    bottom: 0;
+	}
+
+	.team-thumbnails {
+	    padding: 23px 0 0 0;
+	}
+
+	.team-thumbnails .thumbnail.th-5 {
+	    top: -55px;
+	}
+
+	.team-thumbnails .thumbnail.th-6 {
+	    margin: -10px 0 0 0;
+	}
+
+	/*-- /Slide 5 --*/
+
 	/*-- Slide 6 --*/
 
 	.form-h h2 {
@@ -638,42 +704,6 @@
 	/*-- /Slide 7 --*/
 
 }
-
-@media only screen and (max-height: 750px) {
-
-	/*-- Slide 2 --*/
-
-
-	/*-- /Slide 2 --*/
-
-}
-
-
-@media only screen and (max-height: 600px) {
-
-	/*-- Slide 1 --*/
-
-	.site-nav li {
-	    padding: 3px 0 4px 0;
-	}
-
-	/*-- /Slide 1 --*/
-
-	/*-- Slide 2 --*/
-
-	.h-block h2 {
-	    font-size: 52px;
-	    line-height: 62px;
-	}
-
-	.articles-slider .article .more-link {
-	    margin-top: 4px;
-	}
-
-	/*-- /Slide 2 --*/
-
-}
-
 
 
 @media only screen and (max-width: 480px) {

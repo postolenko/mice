@@ -426,15 +426,15 @@ $(document).ready(function() {
 
         }
 
-        // if( $(".site-nav-block .center-position").offset().top <= headerSite.height() ) {
+        if( $(".site-nav-block .center-position").offset().top <= headerSite.height() ) {
 
-        //     $(".site-nav-block").css({
+            $(".site-nav-block").css({
 
-        //         "padding-top" : headerSite.height() + "px"
+                "padding-top" : headerSite.height() + "px"
 
-        //     });
+            });
 
-        // }
+        }
 
     }
 

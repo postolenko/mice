@@ -2090,8 +2090,8 @@ header {
 
 .slide-5-h-block {
     position: absolute;
-    top: 30px;
-    /*bottom: 26px;*/
+    top: initial;
+    bottom: 26px;
     left: -20px;
     white-space: nowrap;
     -webkit-transform: translate(0,100%) rotate(-90deg);
