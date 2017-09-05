@@ -24,7 +24,6 @@ $(document).ready(function() {
 	$(".slide-page").each(function() {
 
 		$(this).css({
-			"height" : $(window).height() + "px",
 			"position" : "absolute",
 			"opacity" : .1,
 			"z-index" : 1

@@ -165,7 +165,27 @@ $(document).ready(function() {
 				slidesToScroll : 1,
 				centerMode: false,
 				focusOnSelect: true,
-				asNavFor : bigSlider
+				asNavFor : bigSlider,
+				responsive: [
+			    {
+			      breakpoint: 1024,
+			      settings: {
+			        slidesToShow: 3
+			      }
+			    },
+			    {
+			      breakpoint: 768,
+			      settings: {
+			        slidesToShow: 2
+			      }
+			    },
+			    {
+			      breakpoint: 350,
+			      settings: {
+			        slidesToShow: 1
+			      }
+			    }
+			  ]
 			});
 
 		});

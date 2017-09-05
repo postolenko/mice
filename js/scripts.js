@@ -30,15 +30,24 @@ $(document).ready(function() {
 
     // ----------------------------
 
+    var centerBlock;
+    var windowHeight;
+    var contentHeight;
+    var centerBlockOffsetTop;
+
+    // ----------------------------
+
     getFooterPosition();
 
     getHeaderSiteStyles();
 
     getMapSize();
 
-    setScrollCoord();
+    setScrollCoord();   
 
     setTimeout(function() {
+
+        getSiteNavStyles();
 
         getContentCenterPosition();
 
@@ -56,6 +65,8 @@ $(document).ready(function() {
 
         getContentCenterPosition();
 
+        getSiteNavStyles();
+
         // ------------------------------------
 
         if( $("ymaps").length > 0 ) {
@@ -65,6 +76,16 @@ $(document).ready(function() {
             $(".map-block").width(mapWidth);
 
         }
+
+        // -------------------------------------
+
+        $(".slide-page").each(function() {
+
+            $(this).css({
+                "height" : $(window).height() + "px"
+            });
+
+        });
 
     });
 
@@ -267,7 +288,7 @@ $(document).ready(function() {
 
             $(this).css({"min-height" : $(window).height() + "px"});
 
-            $(this).css({"padding-top" :  headerSite.height() + "px"});
+            // $(this).css({"padding-top" :  headerSite.height() + "px"});
 
             if( slideFooter.length > 0) {
 
@@ -288,7 +309,7 @@ $(document).ready(function() {
 
                     $(this).css({"min-height" : $(window).height() + "px"});
 
-                    $(this).css({"padding-top" :  headerSite.height() + "px"});
+                    // $(this).css({"padding-top" :  headerSite.height() + "px"});
 
                     if( slideFooter.length > 0) {
 
@@ -364,22 +385,56 @@ $(document).ready(function() {
 
         $(".slide-page").each(function() {
 
-            var centerBlock = $(this).find(".center");
+            centerBlock = $(this).find(".center");            
 
-            var windowHeight = $(window).height();
+            if( centerBlock.length > 0 ) {
 
-            var contentHeight = centerBlock.height();
+                windowHeight = $(window).height();
 
-            var centerBlockOffsetTop = ( windowHeight - contentHeight ) / 2;             
+                contentHeight = centerBlock.height();
 
-            centerBlock.css({
+                centerBlockOffsetTop = ( windowHeight - contentHeight ) / 2;
 
-                "padding-top" : centerBlockOffsetTop  + "px"
+                if( centerBlockOffsetTop > headerSite.height() ) {
 
-            });
+                    centerBlock.css({
+                        "padding-top" : centerBlockOffsetTop  + "px"
+                    });
+
+                } else {
+
+                    centerBlock.css({
+                        "padding-top" : headerSite.height()  + "px"
+                    });
+
+                }
+
+            }
 
 
         });
+
+    }
+
+    function getSiteNavStyles() {
+
+        if( $(".site-nav-block").length > 0 ) {
+
+            $(".site-nav-block .center-position").css({
+                "margin-top" : -1 * ( $(".vertical-line").height() + $(".pages-num").height() ) + "px"
+            });
+
+        }
+
+        // if( $(".site-nav-block .center-position").offset().top <= headerSite.height() ) {
+
+        //     $(".site-nav-block").css({
+
+        //         "padding-top" : headerSite.height() + "px"
+
+        //     });
+
+        // }
 
     }
 
