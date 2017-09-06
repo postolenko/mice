@@ -416,23 +416,24 @@ $(document).ready(function() {
 
     }
 
+
     function getSiteNavStyles() {
 
         if( $(".site-nav-block").length > 0 ) {
 
             $(".site-nav-block .center-position").css({
                 "margin-top" : -1 * ( $(".vertical-line").height() + $(".pages-num").height() ) + "px"
-            });
+            });        
 
-        }
+            if( $(".site-nav-block .center-position").offset().top <= headerSite.height() ) {
 
-        if( $(".site-nav-block .center-position").offset().top <= headerSite.height() ) {
+                $(".site-nav-block").css({
 
-            $(".site-nav-block").css({
+                    "padding-top" : headerSite.height() + "px"
 
-                "padding-top" : headerSite.height() + "px"
+                });
 
-            });
+            }
 
         }
 

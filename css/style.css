@@ -2923,7 +2923,7 @@ header {
 
 .slide-5-about .h-block-right {
     position: absolute;
-    top: -21px;
+    top: 0;
     right: -30px;
     opacity: .4;
     white-space: nowrap;
@@ -3096,6 +3096,10 @@ header {
     color: #353535;
 }
 
+.news-block {
+    padding-top: 70px;
+}
+
 .news-slider-block {
     width: 100%;
     position: relative;
@@ -3135,6 +3139,14 @@ header {
     height: auto;
     min-width: 100%;
     min-height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .news-miniatures-slide .descript {
@@ -3180,7 +3192,15 @@ header {
     width: auto;
     height: auto;
     min-width: 100%;
-    max-height: 100%;
+    min-height: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .news-slider-inner .article {
@@ -3219,7 +3239,6 @@ header {
 .news-inner-controls {
     display: inline-block;
     vertical-align: top;
-    outline: 1px solid red;
 }
 
 .news-slider-controls {
@@ -3234,6 +3253,7 @@ header {
 
 .socials-block_news {
     text-align: right;
+    position: relative;
 }
 
 .socials-block_news .socials-list {
@@ -3391,7 +3411,7 @@ header {
 }
 
 .create-nav-list {
-   padding: 5px 0 0 0;
+   padding: 26px 0 0 0;
 }
 
 .create-nav-list li {
@@ -3525,6 +3545,7 @@ header {
 
 .gallery-slider-block {
     position: relative;
+    margin: 27px 0 0 0;
 }
 
 .gallery-slider {
@@ -3607,6 +3628,14 @@ header {
     min-height: 100%;
     min-width: 100%;
     border: none;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
 
 .gallery-slider .slide {

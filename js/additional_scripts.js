@@ -228,8 +228,29 @@ $(document).ready(function() {
 				slidesToShow: 3,
 				slidesToScroll : 1,
 				focusOnSelect: true,
-				asNavFor : $(".news-big-slider")
+				asNavFor : $(".news-big-slider"),
+				responsive: [
+			    {
+			      breakpoint: 1024,
+			      settings: {
+			        slidesToShow: 2
+			      }
+			    },
+			    {
+			     breakpoint: 768,
+			      settings: {
+			        slidesToShow: 2
+			      }
+			    },
+			    {
+			      breakpoint: 350,
+			      settings: {
+			        slidesToShow: 1
+			      }
+			    }
+			  ]
 			});
+			
 
 			if( $(this).not(".slick-initialized") ) {
 
