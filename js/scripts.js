@@ -192,13 +192,13 @@ $(document).ready(function() {
         });
 
 
-        $(".accordeon li span").click(function(e) {
+        $(".accordeon li span, .accordeon li a").click(function(e) {
 
             if( $(this).children("a").length > 0 ) {
 
                 return true;
 
-            } else { 
+            } else {
 
                 itemParent = $(this).closest("li");
 
@@ -206,7 +206,7 @@ $(document).ready(function() {
 
                 if( itemParent.children("ul").is(":visible" ) ) {
 
-                    itemParent.children("ul").slideUp(400);
+                    itemParent.children("ul").slideUp(500);
 
                     itemParent.removeClass("active");
 
@@ -222,15 +222,20 @@ $(document).ready(function() {
 
                     listItems.each(function() {
 
-                        if( $(this).hasClass("active-item") ) {
+                        if( $(this).hasClass("active-item") ) {                           
 
-                            $(this).children("ul").slideDown(400);
-
+                            $(this).children("ul").slideDown(500);
                             $(this).addClass("active");
+
+                            $(this).children("ul").find("li:eq(0)").each(function() {
+
+                                $(this).children("ul").slideDown(400);
+
+                            });
 
                         } else {
 
-                            $(this).children("ul").slideUp(400);
+                            $(this).children("ul").slideUp(500);
 
                             $(this).removeClass("active");
 

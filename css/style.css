@@ -1388,6 +1388,10 @@ header {
     padding: 0;
 }
 
+.slider-pagination .count-slides-block {
+    top: 0;
+}
+
 .slider-pagination.slider-pagination-1 {
     padding-top: 5px;
     padding-right: 7%;
@@ -1931,7 +1935,7 @@ header {
 
 .slide-two-cols .col-2 {
     width: 55%;
-    padding-left: 2%;
+    padding-left: 4%;
 }
 
 .slide-two-cols h3 {
@@ -2057,6 +2061,10 @@ header {
 
 .slider-pagination-3 {
     padding-top: 9px;
+}
+
+.slider-pagination-3 .count-slides-block {
+    top: 0;
 }
 
 .slider-pagination-3 .slide-arrows-block {
@@ -3467,10 +3475,10 @@ header {
     padding-right: 3.6%;
 }
 
-.create-nav-list li.active {
+/*.create-nav-list li a.active {
     border-top: 1px solid #dfdfdf;
 }
-
+*/
 .create-nav-list li.active > a {
     color: #5d8da5;
     padding-right: 3.6%;

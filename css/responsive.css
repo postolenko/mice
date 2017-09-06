@@ -371,6 +371,10 @@
 	    width: 80%;
 	}
 
+	.main-nav {
+	    margin-right: -7px;
+	}
+
 	.main-nav li {
 	    padding: 0 11px;
 	}
@@ -474,7 +478,7 @@
 	}
 
 	.slide-two-cols .article {
-	    width: 100%;
+	    width: 91%;
 	    margin: 5px 0 5px 0;
 	    padding: 10px 4% 17px 4%;
 	}
