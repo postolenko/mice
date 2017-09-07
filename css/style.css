@@ -1623,9 +1623,19 @@ header {
 }
 
 .article-inner-miniatures-slider .img-box {
+    display: block;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.article-inner-miniatures-slider .img-box img {
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
+    min-width: 100%;
+    min-height: 100%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -1637,6 +1647,8 @@ header {
     display: block;
     padding-top: 22px;
     text-align: center;
+    min-width: 100%;
+    min-height: 100%;
     position: absolute;
     top: 0;
     left: 0;
