@@ -15,6 +15,10 @@
 
 	/*-- Slide 4 --*/
 
+	.slide-3 .h-block-right {
+		right: 3px;
+	}
+
 	.slide-4 .h-block-right {
 	    right: 0;
 	}
@@ -70,7 +74,7 @@
 
 	/*-- Slide 3 --*/
 
-/*	.slide-page.slide-left-bg:before {
+	.slide-page.slide-left-bg:before {
 	    width: 61%;
 	}
 
@@ -89,36 +93,33 @@
 	    line-height: 27px;
 	}
 
-	.articles-slider-2 .slide .col-1 {
+	.two-sliders-slide .slide .col-1 {
 	    width: 51%;
 	}
 
-	.articles-slider-2 .slide .col-2 {
+	.two-sliders-slide .slide .col-2 {
 	    width: 49%;
 	}
 
-	.article-inner-slider .article-inner-slide {
-	    height: 334px;
+	.two-sliders-slide .col-2 {
+	    padding-right: 40px;
 	}
 
-	.articles-slider-2 .slide .article {
-	    width: 95%;
-	    max-width: 95%;
-	    padding-right: 61px;
+	.two-sliders-slide .article h3 {
+	    font-size: 35px;
+	    line-height: 35px;
 	}
 
-	.articles-slider-2 .slide {
-	    min-height: auto;
+	.two-sliders-slide .article p {
+	    font-size: 18px;
+	    line-height: 22px;
+	    padding: 5px 0;
 	}
 
-	.slider-pagination-2 {
-	    bottom: -18px;
+	.article-inner-miniatures-slider {
+	    width: 51%;
 	}
 
-	.socials-block.inner_page {
-	    bottom: 0;
-	}
-*/
 	/*-- /Slide 3 --*/
 
 	/*-- Slide 5 --*/
@@ -229,6 +230,20 @@
 		max-width: 100%;
 		margin: 0;
 	    padding: 10px 3%;
+	}
+
+	.articles-slider-2_1 .slide .article h3 {
+	    font-family: "Bliss Pro", Arial, Verdana, sans-serif;
+	    font-size: 33px;
+	    line-height: 33px;
+	    font-weight: 900;
+	    color: #353535;
+	    padding-bottom: 11px;
+	}
+
+	.articles-slider-2_1 .slide .article p {
+	    font-size: 17px;
+	    line-height: 22px;
 	}
 
 	/*-- /Slide 3 About Page --*/
@@ -416,50 +431,33 @@
 
 	/*-- Slide 3 --*/
 
-/*	.h-block-right h2 {
-	    font-size: 105px;
-	    line-height: 105px;
+	.slide-page.slide-left-bg:before {
+	    width: 60%;
 	}
 
-	.h-block-right h3 {
-	    font-size: 58px;
-	    line-height: 58px;
+	.slide-page-header {
+	    display: block;
+	    width: 60%;
 	}
 
-	.slide-inner-nav li a {
-	    font-size: 13px;
-	    line-height: 27px;
+	.two-sliders-slide .slide .col-1 {
+	    width: 47%;
 	}
 
-	.articles-slider-2 .slide .article h3 {
-	    font-size: 28px;
-	    line-height: 28px;
-	    padding: 0 0 5px 0;
+	.two-sliders-slide .col-1 .img-box {
+	    height: 325px;
 	}
 
-	.articles-slider-2 .slide .article p {
-	    font-size: 17px;
-	    line-height: 21px;
-	    padding: 4px 0;
+	.two-sliders-slide .slide .col-2 {
+	    width: 53%;
+	    text-align: left;
+		padding-left: 4%;
+		padding-right: 30px;
 	}
 
-	.article-inner-miniatures-slider .miniature-slide {
-	    width: 162px;
-	    height: 93px;
+	.article-inner-miniatures-slider {
+	    width: 47%;
 	}
-
-	.miniature-descript {
-	    padding-top: 14px;
-	}
-
-	.miniature-descript span {
-	    font-size: 15px;
-	    line-height: 15px;
-	}
-
-	.articles-slider-2 .slide .article {
-	    padding-right: 40px;
-	}*/
 
 	/*-- /Slide 3 --*/
 
@@ -657,6 +655,20 @@
 	    left: 4%;
 	}
 
+	.articles-slider-2_1 .slide .article h3 {
+	    font-size: 26px;
+	    line-height: 26px;
+	    padding-bottom: 5px;
+	}
+
+	.articles-slider-2_1 .slide .article p {
+	    font-size: 17px;
+	    line-height: 22px;
+	    padding: 2px 0;
+	}
+
+	/*-- /Slide 3 About Page --*/
+
 	/*-- /Slide 3 About Page --*/
 
 	/*-- Slide 4 About Page --*/
@@ -845,7 +857,7 @@
 	    padding: 5px 120px 5px 0;
 	}
 
-	.count-slides-block {
+	.news-slider-controls .count-slides-block {
 	    position: relative;
 	    top: 20px;
 	}
@@ -982,20 +994,29 @@
 
 	/*-- Slide 3 --*/
 
-/*	.slide-page.slide-left-bg:before {
-	    width: 89%;
+	.slide-page.slide-left-bg:before {
+	    width: 80%;
 	}
 
 	.slide-page-header {
-	    width: 90%;
+	    width: 80%;
+	}
+
+	.slide-inner-nav li a {
+	    font-size: 15px;
+	    line-height: 26px;
 	}
 
 	.articles-slider-2-block {
 	    margin: 2px 0;
 	}
 
+	.inner-slider {
+		height: 250px;
+	}
+
 	.article-inner-slider .article-inner-slide {
-	    height: 234px;
+	    height: 250px;
 	}
 
 	.article-inner-slider {
@@ -1010,15 +1031,42 @@
 	    padding-top: 5px;
 	}
 
-	.articles-slider-2 .slide .article p {
-	    font-size: 14px;
-	    line-height: 16px;
+	.two-sliders-slide .col-1 .img-box {
+	    height: 250px;
+	}
+
+	.two-sliders-slide .article h3 {
+	    font-size: 30px;
+	    line-height: 30px;
+	    padding-bottom: 5px;
+	}
+
+	.two-sliders-slide .article p {
+	    font-size: 16px;
+	    line-height: 18px;
 	    padding: 2px 0;
 	}
 
-	.count-slides-block {
-	    margin: 0;
-	}*/
+	.miniatures-slider-block {
+	    margin: -81px 0 0 0;
+	}
+
+	.two-sliders-slide {
+	    padding-bottom: 81px;
+	}
+
+	.slider-pagination-2 {
+	    bottom: -7px;
+	}
+
+	.two-sliders-slide .count-slides-block {
+	    top: 24px;
+	}
+
+	.miniature-descript span {
+	    font-size: 14px;
+	    line-height: 14px;
+	}
 
 	/*-- /Slide 3 --*/
 

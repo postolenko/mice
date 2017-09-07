@@ -166,13 +166,13 @@ $(document).ready(function() {
 				asNavFor : bigSlider,
 				responsive: [
 			    {
-			      breakpoint: 1024,
+			      breakpoint: 1180,
 			      settings: {
 			        slidesToShow: 3
 			      }
 			    },
 			    {
-			      breakpoint: 768,
+			      breakpoint: 900,
 			      settings: {
 			        slidesToShow: 2
 			      }
@@ -185,6 +185,14 @@ $(document).ready(function() {
 			    }
 			  ]
 			});
+
+		});		
+
+		$(".parent_slider").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+
+			var sliderName = $(this).attr("data-slider");
+
+			$(".count-slides-block[data-slider = '"+ sliderName +"'] .current-slide").text(+nextSlide + 1);
 
 		});
 
