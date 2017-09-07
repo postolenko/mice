@@ -47,13 +47,11 @@ $(document).ready(function() {
 
 		$(".articles_slider").each(function() {
 
-			// var sliderParent = $(this).closest(".articles_slider_block");
-
 			var sliderName = $(this).attr("data-slider");
 
 			var countSlides = $(this).find(".slide").length;
 
-			var sliderAppendArrows = $(".slider-pagination .append-arrows[data-slider = '"+ sliderName +"']");
+			var sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
 
 			if( $(".dots-pagination-append[data-slider = '"+ sliderName +"']").length > 0   ) {
 
@@ -130,24 +128,24 @@ $(document).ready(function() {
 
 	}
 
+	if($(".parent_slider").length > 0) {
 
-	if($(".inner_slider").length > 0) {
+		$(".parent_slider").each(function() {
 
-		$(".inner_slider").each(function() {
+			var bigSlider = $(this);
 
-			var bigSlider = $(this).find(".article-inner-slider");
+			var sliderName = $(this).attr("data-parent-slider");
 
-			var sliderName = $(this).attr("data-slider");
+			var sliderAppendArrows = $(".append-arrows[data-parent-slider = '"+ sliderName +"']");
 
-			var sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
-
-			var miniaturesSlider = $(this).find(".article-inner-miniatures-slider");
+			var miniaturesSlider = $(".miniatures_slider[data-miniature-slider = '"+ sliderName +"']");
 
 			bigSlider.not(".slick-initialized").slick({
 				dots: false,
 				arrows: false,
 				// autoplay: true,
 				draggable : false,
+				focusOnSelect: true,
 				autoplaySpeed: 10000,
 				speed: 1200,
 				slidesToShow: 1,
