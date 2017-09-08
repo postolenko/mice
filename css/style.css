@@ -915,6 +915,108 @@ header {
     display: block;
 }
 
+
+/* ----- Responsive Menu Button ------ */
+
+.mCSB_draggerContainer {
+    opacity: 0 !important;
+    right: -20px;
+}
+
+.respmenubtn-box {
+    display: none;
+    width: 100%;
+    min-height: 34px;
+    text-align: right;
+    position: relative;
+    z-index: 5;
+}
+
+.respmenubtn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 35px;
+    height: 30px;
+    margin: 4px 0 0 0;
+    cursor: pointer;
+    z-index: 8;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.respmenubtn span {
+    display: block;
+    width: 27px;
+    height: 3px;
+    background: rgb(131, 165, 242);
+    margin: 0 auto 7px auto;
+
+    -webkit-transition-property: transform, border, background;
+    -webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: ease;
+
+    -moz-transition-property: transform, border, background;
+    -moz-transition-duration: .3s;
+    -moz-transition-timing-function: ease;
+
+    -ms-transition-property: transform, border, background;
+    -ms-transition-duration: .3s;
+    -ms-transition-timing-function: ease;
+
+    -o-transition-property: transform, border, background;
+    -o-transition-duration: .3s;
+    -o-transition-timing-function: ease;
+
+    transition-property: transform, border, background;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+}
+
+.respmenubtn span:last-child {
+    margin: 0 auto;
+}
+
+.respmenubtn:active {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+    -webkit-tap-highlight-color: transparent;
+}
+
+.respmenubtn:hover span {
+    background: rgb(131, 204, 242);
+}
+
+.respmenubtn.active span {
+    position: relative;
+    width: 35px;
+    top: 1px;
+    left: 0px;
+    background: rgb(131, 204, 242);
+}
+
+.respmenubtn.active span:last-child {
+    display: none;
+}
+
+.respmenubtn.active span:first-child {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin: 3px 0 0 0;
+    position: relative;
+    top: 4px;
+    left: 1px;
+}
+
+.respmenubtn.active span:nth-child(2) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* ----- / Responsive Menu Button ------ */
+
 /*-------------------------------------------*/
 /* ----- CONTENT ------ */
 /*-------------------------------------------*/
@@ -1209,7 +1311,7 @@ header {
     transform-origin: 0 0;
 }
 
-.h-block h2 :after {
+.h-block h2:after {
      content: "";
      float: left;
      margin-top: 100%;
@@ -1413,10 +1515,37 @@ header {
     z-index: 5;
 }
 
+.close-slider {
+    display: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 90%;
+    border: 1px solid transparent;
+    background: transparent;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.close-slider:before {
+    display: block;
+    content: "\2716";
+    font-family: "Bliss Pro", Arial, Verdana, sans-serif;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: normal;
+    color: rgb(131, 165, 242);
+}
+
 .slide-page-header {
     display: block;
     width: 50%;
-    margin-top: 23px;
+    margin-top: 60px;
     padding-left: 1%;
     border-left: 3px solid #ffffff;
 }
@@ -2601,7 +2730,8 @@ header {
 
 .contacts-content .socials-block {
     width: 100%;
-    text-align: center;  
+    text-align: center;
+    padding-bottom: 40px;
 }
 
 .contacts-content .socials-block .socials-list {

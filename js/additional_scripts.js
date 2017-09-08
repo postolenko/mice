@@ -166,7 +166,7 @@ $(document).ready(function() {
 				asNavFor : bigSlider,
 				responsive: [
 			    {
-			      breakpoint: 1180,
+			      breakpoint: 1340,
 			      settings: {
 			        slidesToShow: 3
 			      }
@@ -178,9 +178,21 @@ $(document).ready(function() {
 			      }
 			    },
 			    {
-			      breakpoint: 350,
+			      breakpoint: 700,
 			      settings: {
-			        slidesToShow: 1
+			        slidesToShow: 5
+			      }
+			    },
+			    {
+			      breakpoint: 610,
+			      settings: {
+			        slidesToShow: 3
+			      }
+			    },
+			    {
+			      breakpoint: 430,
+			      settings: {
+			        slidesToShow: 2
 			      }
 			    }
 			  ]
