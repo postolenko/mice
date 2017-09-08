@@ -2316,3 +2316,12 @@
 	/*-- /404 Page --*/
 
 }
+
+@media only screen and (min-width: 701px) {
+
+	.main-nav-block {
+		display: block !important;
+		height: auto !important;
+	}
+
+}

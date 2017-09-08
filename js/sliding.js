@@ -188,7 +188,7 @@ $(document).ready(function() {
     });
 
 
-	$(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e) {
+	$(window).on('mousewheel', function(e) {
 
 		if( bodyWidth > 700 ) {
 
@@ -206,9 +206,7 @@ $(document).ready(function() {
 
 			 	});
 
-			    delta = parseInt(e.originalEvent.wheelDelta || -e.originalEvent.detail);
-
-			    if (delta >= 0) {
+			    if (e.deltaY > 0) {
 
 			    	indexLinkPage--;			   	
 
