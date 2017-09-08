@@ -13,7 +13,6 @@ $(document).ready(function() {
 	var sliderAppendDots;
 	var initDots;
 
-	var wrapper;
 	var initialized = false;
 
 	// ---------------------
@@ -294,8 +293,6 @@ $(document).ready(function() {
 
 	function slick_slider() {
 
-		// wrapper = $(".article-inner-miniatures-slider");
-
 		if ($(".miniatures_slider.slick-initialized").length > 0 && bodyWidth <= 700 ) {
 
 			setTimeout(function() {
@@ -304,7 +301,7 @@ $(document).ready(function() {
 
 				$(".parent-slider").slick("unslick");
 
-			}, 1000);
+			}, 500);
 
 			initialized = false;
 
