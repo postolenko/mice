@@ -1397,8 +1397,8 @@
 	}
 
 	.main-nav li a {
-	    font-size: 20px;
-	    line-height: 20px;
+		font-size: 25px;
+		line-height: 28px;
 	    font-weight: bold;
 	    padding: 5px 0;
 	    color: #4f8dff;
@@ -1505,6 +1505,10 @@
 	}
 
 	.parent-slider-block {
+		
+	}
+
+	.parent-slider-block .two-sliders-slide {
 		display: block;
 		width: 100%;
 		height: 100vh;
@@ -1595,6 +1599,16 @@
 
 	.article-inner-miniatures-slider {
 	    width: 100%;
+	}
+
+	.article-inner-miniatures-slider .miniature-slide {
+		width: 31%;
+	    height: 125px;
+	}
+
+	.miniature-descript span {
+	    font-size: 16px;
+	    line-height: 22px;
 	}
 
 	/*-- /Slide 3 --*/
@@ -2041,6 +2055,15 @@
 	    padding: 9px 10px;
 	}
 
+	.create-nav-list li.active > ul {
+	    border-bottom: 1px solid transparent;
+	}
+
+	.create-nav-list a {
+	    font-size: 17px;
+	    line-height: 22px;
+	}
+
 	.news-slider-inner .img-box {
 	    height: 240px;
 	}
@@ -2163,6 +2186,19 @@
 
 	/*-- /Slide 2 --*/
 
+	/*-- Slide 3 --*/
+
+	.article-inner-miniatures-slider .miniature-slide {
+		width: 48%;
+	}
+
+	.miniature-descript span {
+	    font-size: 16px;
+	    line-height: 22px;
+	}
+
+	/*-- /Slide 3 --*/
+
 	/*-- Slide 7 --*/
 
 	.contacts-thumbnails {
@@ -2232,6 +2268,24 @@
 	}
 
 	/*-- .Slide 2 --*/
+
+	/*-- Slide 3 --*/
+
+	.article-inner-miniatures-slider {
+		text-align: center;
+	}
+
+	.article-inner-miniatures-slider .miniature-slide {
+		width: 47%;
+	    height: 125px;
+	}
+
+	.miniature-descript span {
+	    font-size: 15px;
+	    line-height: 21px;
+	}
+
+	/*-- /Slide 3 --*/
 
 	/*-- Slide 5 --*/
 

@@ -163,7 +163,8 @@ $(document).ready(function() {
 
     $(function() {
 
-        var accordeonItemList;    
+        var accordeonItemList;
+        var slideFlag;
 
         $(".accordeon").each(function() {
 
@@ -218,25 +219,88 @@ $(document).ready(function() {
 
                     accordeonItemParent.addClass("active-list");
 
-                    var listItems = accordeonItemParent.children("li");         
+                    var listItems = accordeonItemParent.children("li");      
 
                     listItems.each(function() {
 
-                        if( $(this).hasClass("active-item") ) {                           
+                        if( $(this).hasClass("active-item") ) {
 
-                            $(this).children("ul").slideDown(500);
-                            $(this).addClass("active");
+                            // if( $(this).find("ul").height() <= 0 ) {
 
-                            $(this).children("ul").find("li:eq(0)").each(function() {
+                                // $(this).find("ul").each(function() {
 
-                                $(this).children("ul").slideDown(400);
+                                //     if($(this).height() > 0) {
 
-                            });
+                                //         slideFlag = false;
+
+                                //         return false;
+
+                                //         // return true;
+
+                                //     } else {
+
+                                //         slideFlag = true;
+
+                                //         // return false;
+
+                                //     }
+
+                                // });
+
+                                // if(slideFlag == false) {
+
+                                //     $(this).children("ul").slideDown(400);
+
+                                // } else {
+
+                                    // $(this).find("li").eq(0).children("ul").slideDown(400);
+
+                                // }
+
+                                    // $(this).slideDown(400);
+
+                                    // console.log($(this).index());
+
+                                    // if( $(this).height() > 0 ) {
+
+                                    //     return true;
+
+                                    // } 
+
+                                    // if( $(this).closest("li").index() == 0 && $(this).height() <= 0 ) {
+
+                                        // $(this).each(function() {
+
+                                            // $(this).find("ul").slideUp(400);
+
+                                            // $(this).slideDown(400);
+
+                                        // });
+
+                                        // $(this).each(function() {
+
+                                        //     $(this).slideDown(400);
+
+                                        // });
+
+                                        // console.log($(this).index());
+ 
+                                        // $(this).children("ul").slideDown(400);
+
+                                    // }
+
+                                // });
+
+                            // } else {
+
+                                $(this).children("ul").slideDown(500);
+                                $(this).addClass("active");
+
+                            // }
 
                         } else {
 
                             $(this).children("ul").slideUp(500);
-
                             $(this).removeClass("active");
 
                         }
@@ -292,11 +356,17 @@ $(document).ready(function() {
 
     $(function() {
 
+        var miniatureIndex;
+
         $(".miniature-slide").click(function() {
 
             if( bodyWidth <= 700 ) {
 
-                $(".parent-slider-block").animate({"left" : 0 + "%"}, 400);
+                miniatureIndex = $(this).index();
+
+                console.log(miniatureIndex);
+
+                $(".parent-slider-block .two-sliders-slide:eq("+ miniatureIndex +")").animate({"left" : 0 + "%"}, 400);
 
             }
 
@@ -308,7 +378,7 @@ $(document).ready(function() {
 
                 if (eventObject.which == 27) {
 
-                    $(".parent-slider-block").animate({"left" : -110 + "%"}, 400);
+                    $(".parent-slider-block .two-sliders-slide:eq("+ miniatureIndex +")").animate({"left" : -110 + "%"}, 400);
 
                 }
 
@@ -320,7 +390,7 @@ $(document).ready(function() {
 
             if( bodyWidth <= 700 ) {
 
-                $(".parent-slider-block").animate({"left" : -110 + "%"}, 400);
+                $(".parent-slider-block .two-sliders-slide:eq("+ miniatureIndex +")").animate({"left" : -110 + "%"}, 400);
 
             }
 
