@@ -1271,13 +1271,20 @@ header {
 }
 
 .promo-backgrounds-slider .slide {
-
+    /*outline: 1px solid red;*/
 }
 
 .promo-backgrounds-slider .slide img {
     display: block;
     min-width: 100%;
     min-height: 100%;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
 }
 
 /*-- /Slide 1 --*/
@@ -3270,6 +3277,7 @@ header {
 .news-miniatures-slide {
     display: block;
     width: 180px;
+    cursor: pointer;
     /*margin: 10px 0;*/
     padding: 9px 0;
 }
@@ -3560,7 +3568,7 @@ header {
 }
 
 .create-nav-list {
-   padding: 26px 0 0 0;
+    margin: 26px 0 0 0;
 }
 
 .create-nav-list li {
