@@ -37,18 +37,39 @@ $(document).ready(function() {
 
     // ----------------------------
 
+    var getMapSizeInterval;
+    var mapWidth;
+
+    // ----------------------------
+
+    var accordeonItem;
+    var accordeonItemList;
+    var slideFlag;
+    var accordeonItemParent;
+    var listItems;
+
+    // ----------------------------
+
+    var miniatureIndex;
+
+    // ----------------------------
+
+    var linkContactsHref;
+    var linkContacts;
+
+    // ----------------------------
+
     getFooterPosition();
 
     getHeaderSiteStyles();
 
     getMapSize();
 
-    setScrollCoord();   
+    setScrollCoord();
 
     setTimeout(function() {
-
+        
         getSiteNavStyles();
-
         getContentCenterPosition();
 
     }, 500);
@@ -71,7 +92,7 @@ $(document).ready(function() {
 
         if( $("ymaps").length > 0 ) {
 
-            var mapWidth = bodyWidth - ( $(".contacts-thumbnails").offset().left + $(".contacts-thumbnails").width() );
+            mapWidth = bodyWidth - ( $(".contacts-thumbnails").offset().left + $(".contacts-thumbnails").width() );
 
             $(".map-block").width(mapWidth);
 
@@ -95,16 +116,6 @@ $(document).ready(function() {
 
     });
 
-    $(function() {
-
-        $(".three-cols-article").each(function() {
-
-            var hBlock = $(this).find(".h-block");
-
-        });
-
-    });
-
 
     $(function() {
 
@@ -118,57 +129,20 @@ $(document).ready(function() {
 
     });
 
-    $(function() {
-
-        var parentSlidePopup;
-
-        $(".show-slide-popup").click(function() {
-
-            parentSlidePopup = $(this).closest(".slide-popup");
-
-            if( parentSlidePopup.find(".hidden-block").is(":hidden") ) {
-
-                parentSlidePopup.addClass("active");
-
-                parentSlidePopup.find(".hidden-block").fadeIn(300);
-
-                parentSlidePopup.find(".visible-block").css({
-                    "display" : "none"
-                });
-            }
-
-        });
-
-        $(".hide-slide-popup").click(function() {
-
-            parentSlidePopup = $(this).closest(".slide-popup");
-
-            if( parentSlidePopup.find(".hidden-block").is(":visible") ) {
-
-                parentSlidePopup.removeClass("active");
-
-                parentSlidePopup.find(".hidden-block").css({
-                    "display" : "none"
-                });
-
-                parentSlidePopup.find(".visible-block").fadeIn(300);
-
-            }
-
-        });
-
-    });
 
     // -- Accordeon --
 
     $(function() {
 
-        var accordeonItemList;
-        var slideFlag;
+        // var accordeonItem;
+        // var accordeonItemList;
+        // var slideFlag;
+        // var accordeonItemParent;
+        // var listItems;
 
         $(".accordeon").each(function() {
 
-            var accordeonItem = $(this).find("li");
+            accordeonItem = $(this).find("li");
 
             accordeonItem.each(function() {
 
@@ -215,88 +189,18 @@ $(document).ready(function() {
 
                     itemParent.addClass("active-item");
 
-                    var accordeonItemParent = itemParent.closest("ul");
+                    accordeonItemParent = itemParent.closest("ul");
 
                     accordeonItemParent.addClass("active-list");
 
-                    var listItems = accordeonItemParent.children("li");      
+                    listItems = accordeonItemParent.children("li");      
 
                     listItems.each(function() {
 
                         if( $(this).hasClass("active-item") ) {
 
-                            // if( $(this).find("ul").height() <= 0 ) {
-
-                                // $(this).find("ul").each(function() {
-
-                                //     if($(this).height() > 0) {
-
-                                //         slideFlag = false;
-
-                                //         return false;
-
-                                //         // return true;
-
-                                //     } else {
-
-                                //         slideFlag = true;
-
-                                //         // return false;
-
-                                //     }
-
-                                // });
-
-                                // if(slideFlag == false) {
-
-                                //     $(this).children("ul").slideDown(400);
-
-                                // } else {
-
-                                    // $(this).find("li").eq(0).children("ul").slideDown(400);
-
-                                // }
-
-                                    // $(this).slideDown(400);
-
-                                    // console.log($(this).index());
-
-                                    // if( $(this).height() > 0 ) {
-
-                                    //     return true;
-
-                                    // } 
-
-                                    // if( $(this).closest("li").index() == 0 && $(this).height() <= 0 ) {
-
-                                        // $(this).each(function() {
-
-                                            // $(this).find("ul").slideUp(400);
-
-                                            // $(this).slideDown(400);
-
-                                        // });
-
-                                        // $(this).each(function() {
-
-                                        //     $(this).slideDown(400);
-
-                                        // });
-
-                                        // console.log($(this).index());
- 
-                                        // $(this).children("ul").slideDown(400);
-
-                                    // }
-
-                                // });
-
-                            // } else {
-
-                                $(this).children("ul").slideDown(500);
-                                $(this).addClass("active");
-
-                            // }
+                            $(this).children("ul").slideDown(500);
+                            $(this).addClass("active");
 
                         } else {
 
@@ -356,15 +260,13 @@ $(document).ready(function() {
 
     $(function() {
 
-        var miniatureIndex;
+        // var miniatureIndex;
 
         $(".miniature-slide").click(function() {
 
             if( bodyWidth <= 700 ) {
 
                 miniatureIndex = $(this).index();
-
-                console.log(miniatureIndex);
 
                 $(".parent-slider-block .two-sliders-slide:eq("+ miniatureIndex +")").animate({"left" : 0 + "%"}, 400);
 
@@ -402,9 +304,9 @@ $(document).ready(function() {
 
     function setScrollCoord() {
 
-        var linkContactsHref = location.href.split("#");
+        linkContactsHref = location.href.split("#");
 
-        var linkContacts = linkContactsHref[linkContactsHref.length - 1];
+        linkContacts = linkContactsHref[linkContactsHref.length - 1];
 
         if( linkContacts == "contacts" && $("#" + linkContacts).length > 0 ) {
 
@@ -436,8 +338,6 @@ $(document).ready(function() {
 
             $(this).css({"min-height" : $(window).height() + "px"});
 
-            // $(this).css({"padding-top" :  headerSite.height() + "px"});
-
             if( slideFooter.length > 0) {
 
                 $(this).css({"padding-bottom" :  slideFooter.height() + "px"});
@@ -456,8 +356,6 @@ $(document).ready(function() {
                 if( contentCoor != footerCoor || contentCoor < footerCoor) {
 
                     $(this).css({"min-height" : $(window).height() + "px"});
-
-                    // $(this).css({"padding-top" :  headerSite.height() + "px"});
 
                     if( slideFooter.length > 0) {
 
@@ -513,13 +411,13 @@ $(document).ready(function() {
 
     function getMapSize() {
 
-        var getMapSizeInterval = setInterval(function() {
+        getMapSizeInterval = setInterval(function() {
 
             if( $("ymaps").length > 0 ) {
 
                 clearInterval(getMapSizeInterval);
 
-                var mapWidth = bodyWidth - ( $(".contacts-thumbnails").offset().left + $(".contacts-thumbnails").width() );
+                mapWidth = bodyWidth - ( $(".contacts-thumbnails").offset().left + $(".contacts-thumbnails").width() );
 
                 $(".map-block").width(mapWidth);
 

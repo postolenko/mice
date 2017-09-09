@@ -25,6 +25,27 @@ $(document).ready(function() {
 
 	// ---------------------
 
+	var sliderName;
+	var countSlides;
+	var sliderAppendArrows;
+	var slideCurrent;
+	var miniatureSlider;
+
+	// ---------------------
+
+	var dotsItemsParent;
+	var dotsItems;
+	var startYear;
+	var itemYear;
+
+	// ---------------------
+
+	var bigSlider;
+
+	// ---------------------
+
+	// ---------------------
+
 	slick_slider();
 
 	$(window).resize(function() {
@@ -41,8 +62,8 @@ $(document).ready(function() {
 		$(".promo-backgrounds-slider").not(".slick-initialized").slick({
 	      dots: false,
 	      arrows: false,
-	      // autoplay: true,
-	      autoplaySpeed: 3000,
+	      autoplay: true,
+	      autoplaySpeed: 10000,
 	      speed: 1200,
 	      slidesToShow: 1,
 	      fade: true,
@@ -70,11 +91,11 @@ $(document).ready(function() {
 
 		$(".articles_slider").each(function() {
 
-			var sliderName = $(this).attr("data-slider");
+			sliderName = $(this).attr("data-slider");
 
-			var countSlides = $(this).find(".slide").length;
+			countSlides = $(this).find(".slide").length;
 
-			var sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
+			sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
 
 			if( $(".dots-pagination-append[data-slider = '"+ sliderName +"']").length > 0   ) {
 
@@ -101,7 +122,7 @@ $(document).ready(function() {
 
 			if( $(this).not(".slick-initialized") ) {
 
-				var slideCurrent = $(this).find(".slick-current").attr("data-slick-index");
+				slideCurrent = $(this).find(".slick-current").attr("data-slick-index");
 
 				$(".count-slides-block[data-slider = '"+ sliderName +"'] .total-slides").text(countSlides);
 
@@ -113,7 +134,7 @@ $(document).ready(function() {
 
 		$(".articles_slider").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
 
-			var sliderName = $(this).attr("data-slider");
+			sliderName = $(this).attr("data-slider");
 
 			$(".count-slides-block[data-slider = '"+ sliderName +"'] .current-slide").text(+nextSlide + 1);
 
@@ -129,17 +150,17 @@ $(document).ready(function() {
 
 			$(".range-pagination .slick-dots").each(function() {
 
-				var dotsItemsParent = $(this).closest(".range-pagination");
+				dotsItemsParent = $(this).closest(".range-pagination");
 
-				var dotsItems = $(this).find("li");
+				dotsItems = $(this).find("li");
 
-				var startYear = parseInt( dotsItemsParent.attr("data-start") );
+				startYear = parseInt( dotsItemsParent.attr("data-start") );
 
 				dotsItems.each(function() {
 
 					$(this).attr("data-year", startYear++);
 
-					var itemYear = $(this).attr("data-year");
+					itemYear = $(this).attr("data-year");
 
 					$(this).prepend("<span class='item-year'>"+ itemYear +"</span>");
 
@@ -155,7 +176,7 @@ $(document).ready(function() {
 
 		$(".parent_slider").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
 
-			var sliderName = $(this).attr("data-slider");
+			sliderName = $(this).attr("data-slider");
 
 			$(".count-slides-block[data-slider = '"+ sliderName +"'] .current-slide").text(+nextSlide + 1);
 
@@ -167,19 +188,18 @@ $(document).ready(function() {
 
 		$(".news-big-slider").each(function() {
 
-			var sliderName = $(this).attr("data-slider");
+			sliderName = $(this).attr("data-slider");
 
-			var sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
+			sliderAppendArrows = $(".append-arrows[data-slider = '"+ sliderName +"']");
 
-			var miniatureSlider = $(".news-miniatures-slider[data-slider = '"+ sliderName +"']");
+			miniatureSlider = $(".news-miniatures-slider[data-slider = '"+ sliderName +"']");
 
-			var countSlides = $(this).find(".slide").length;
+			countSlides = $(this).find(".slide").length;
 
 			$(this).not(".slick-initialized").slick({
 				dots: false,
 				arrows: true,
 				// autoplay: true,
-				// draggable : false,
 				autoplaySpeed: 10000,
 				speed: 1200,
 				slidesToShow: 1,
@@ -240,7 +260,7 @@ $(document).ready(function() {
 
 			if( $(this).not(".slick-initialized") ) {
 
-				var slideCurrent = $(this).find(".slick-current").attr("data-slick-index");
+				slideCurrent = $(this).find(".slick-current").attr("data-slick-index");
 
 				$(".count-slides-block[data-slider = '"+ sliderName +"'] .total-slides").text(countSlides);
 
@@ -252,7 +272,7 @@ $(document).ready(function() {
 
 		$(".news-big-slider").on('beforeChange', function(event, slick, currentSlide, nextSlide) {
 
-			var sliderName = $(this).attr("data-slider");
+			sliderName = $(this).attr("data-slider");
 
 			$(".count-slides-block[data-slider = '"+ sliderName +"'] .current-slide").text(+nextSlide + 1);
 
@@ -270,16 +290,15 @@ $(document).ready(function() {
 
 		$(".news-slider-inner").each(function() {
 
-			var sliderName = $(this).attr("data-inner-slider");
+			sliderName = $(this).attr("data-inner-slider");
 
-			var sliderAppendArrows = $(".news-inner-arrows[data-inner-slider = '"+ sliderName  +"']");
+			sliderAppendArrows = $(".news-inner-arrows[data-inner-slider = '"+ sliderName  +"']");
 
 			$(this).not(".slick-initialized").slick({
 				dots: false,
 				arrows: true,
-				// autoplay: true,
-				// draggable : false,
-				// autoplaySpeed: 10000,
+				autoplay: true,
+				autoplaySpeed: 10000,
 				speed: 1200,
 				slidesToShow: 1,
 				fade: true,
@@ -319,13 +338,13 @@ $(document).ready(function() {
 
 				$(".parent_slider").each(function() {
 
-					var bigSlider = $(this);
+					bigSlider = $(this);
 
-					var sliderName = $(this).attr("data-parent-slider");
+					sliderName = $(this).attr("data-parent-slider");
 
-					var sliderAppendArrows = $(".append-arrows[data-parent-slider = '"+ sliderName +"']");
+					sliderAppendArrows = $(".append-arrows[data-parent-slider = '"+ sliderName +"']");
 
-					var miniaturesSlider = $(".miniatures_slider[data-miniature-slider = '"+ sliderName +"']");
+					miniaturesSlider = $(".miniatures_slider[data-miniature-slider = '"+ sliderName +"']");
 
 					bigSlider.not(".slick-initialized").slick({
 						dots: false,
@@ -366,12 +385,6 @@ $(document).ready(function() {
 					    },
 					    {
 					      breakpoint: 700,
-					      settings: {
-					        slidesToShow: 3
-					      }
-					    },
-					    {
-					      breakpoint: 610,
 					      settings: {
 					        slidesToShow: 3
 					      }

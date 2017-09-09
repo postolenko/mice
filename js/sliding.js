@@ -27,6 +27,13 @@ $(document).ready(function() {
 
 	// -------------------------------
 
+	var linkContactsHref;
+	var firstIndex;
+	var lastIndex;
+	var linkContacts;
+
+	// -------------------------------
+
 	$(document).resize(function() {
 
 		bodyWidth = w.innerWidth || e.clientWidth || g.clientWidth;
@@ -68,6 +75,8 @@ $(document).ready(function() {
 		}
 
 	});
+
+	$(".slide-page:eq("+activeSlideIndex+")").addClass("active");
 
 	$(".slide-page").eq(activeSlideIndex).css({
 		"opacity" : 1,
@@ -153,13 +162,13 @@ $(document).ready(function() {
 
 	$("a.contacts-link").click(function(linkEvent) {
 
-		var linkContactsHref = location.href;
+		linkContactsHref = location.href;
 
-		var firstIndex = linkContactsHref.lastIndexOf("/");
+		firstIndex = linkContactsHref.lastIndexOf("/");
 
-		var lastIndex = linkContactsHref.lastIndexOf(".");
+		lastIndex = linkContactsHref.lastIndexOf(".");
 
-		var linkContacts = linkContactsHref.substring(lastIndex, firstIndex+1);
+		linkContacts = linkContactsHref.substring(lastIndex, firstIndex+1);
 
         if( linkContacts == contactsPage ) {
 
