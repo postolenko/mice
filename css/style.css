@@ -1236,12 +1236,13 @@ a:active {
 
 .promo-backgrounds-slider .slide {
     overflow: hidden;
+    height: 100vh;
 }
 
 .promo-backgrounds-slider .slide img {
     display: block;
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     position: relative;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
