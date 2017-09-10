@@ -1999,7 +1999,8 @@ a:active {
 }
 
 .show-accordeon {
-    display: block;
+    /*display: block;*/
+    display: none;
     width: 100%;
     cursor: pointer;
     margin: 20px 0 0 0;
@@ -2053,7 +2054,8 @@ a:active {
 }
 
 .close-accordeon {
-    display: block;
+    /*display: block;*/
+    display: none;
     width: 30px;
     height: 30px;
     cursor: pointer;
