@@ -59,6 +59,10 @@ $(document).ready(function() {
 
     // ----------------------------
 
+    var gallerySliderName;
+
+    // ----------------------------
+
     getFooterPosition();
 
     getHeaderSiteStyles();
@@ -297,6 +301,32 @@ $(document).ready(function() {
             }
 
         });
+
+    });
+
+    // ----------------
+
+    $(function() {      
+
+      $(".gallery-slider").swipe( {
+
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {          
+
+          gallerySliderName = $(this).attr("data-slider-name");
+
+          if(direction == "left") {
+
+            $("[data-slider-name = '"+ gallerySliderName +"'] .gallery-arrow.prev").click();
+
+          } else {
+
+            $("[data-slider-name = '"+ gallerySliderName +"'] .gallery-arrow.next").click();
+
+          }          
+
+        }
+
+      });
 
     });
 

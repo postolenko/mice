@@ -350,7 +350,6 @@ $(document).ready(function() {
 						dots: false,
 						arrows: false,
 						// autoplay: true,
-						draggable : false,
 						focusOnSelect: true,
 						autoplaySpeed: 10000,
 						speed: 1200,
