@@ -8,7 +8,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<link rel="stylesheet" type="text/css" href="vendors/css/animate.css">	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
@@ -17,6 +16,7 @@
 	<script type="text/javascript" src="vendors/js/jquery.js"></script>
 	<script type="text/javascript" src="vendors/js/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript" src="slick/slick.js"></script>
+	<script type="text/javascript" src="vendors/js/jquery.touchSwipe.min.js"></script>
 	<script type="text/javascript" src="vendors/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<link rel="icon" type="image/png" href="favicon/favicon.ico" sizes="16x16">	
@@ -879,9 +879,13 @@
 								<h2><nobr><span class="small">О нас</span> говорят</nobr></h2>
 							</div>
 
-							<div class="clearfix">				
+							<div class="clearfix">
 
-								<div class="left-nav-block left">
+								<button type="button" class="show-accordeon" data-accordeon = "accordeon_1">Выбрать событие с отзывом</button>		
+
+								<div class="left-nav-block scroll left"  data-accordeon = "accordeon_1">
+
+									<button type="button" class="close-accordeon"></button>
 
 									<ul class="left-nav-block-list accordeon">
 										<li class="active"><span>Фотогаллерея</span>

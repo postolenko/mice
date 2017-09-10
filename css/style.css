@@ -1891,6 +1891,10 @@ a:active {
     text-transform: none;
 }
 
+.left-nav-block {
+    background: rgba(255, 255, 255, .8);
+}
+
 .left-nav-block-list ul {
     padding: 0 0 0 2px;
 }
@@ -1992,6 +1996,87 @@ a:active {
 .left-nav-block {
     width: 15%;
     margin: 40px 0 0 0;
+}
+
+.show-accordeon {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    margin: 20px 0 0 0;
+    padding: 10px 2%;
+    font-family: "Bliss Pro", Arial, Verdana, sans-serif;
+    font-size: 19px;
+    line-height: 19px;
+    font-weight: normal;
+    color: #353535;
+    background: rgb(251, 251, 251);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #5d8da5;
+
+    -webkit-transition-property: color;
+    -webkit-transition-duration: .3s;
+    -webkit-transition-timing-function: ease;
+
+    -moz-transition-property: color;
+    -moz-transition-duration: .3s;
+    -moz-transition-timing-function: ease;
+
+    -ms-transition-property: color;
+    -ms-transition-duration: .3s;
+    -ms-transition-timing-function: ease;
+
+    -o-transition-property: color;
+    -o-transition-duration: .3s;
+    -o-transition-timing-function: ease;
+
+    transition-property: color;
+    transition-duration: .3s;
+    transition-timing-function: ease;
+
+}
+
+.show-accordeon:link,
+.show-accordeon:visited {
+    color: #353535;
+}
+
+.show-accordeon.active,
+.show-accordeon:active {
+    color: #5d8da5;
+}
+
+.show-accordeon:hover {
+    color: #5d8da5;
+}
+
+.close-accordeon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+    left: 90%;
+    border: 1px solid transparent;
+    background: transparent;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.close-accordeon:before {
+    display: block;
+    content: "\2716";
+    font-family: "Bliss Pro", Arial, Verdana, sans-serif;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: normal;
+    color: rgb(131, 165, 242);
 }
 
 .articles-slider-3-block {

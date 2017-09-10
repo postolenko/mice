@@ -43,6 +43,7 @@ $(document).ready(function() {
     // ----------------------------
 
     var accordeonItem;
+    var accordeonName;
     var accordeonItemList;
     var slideFlag;
     var accordeonItemParent;
@@ -139,10 +140,49 @@ $(document).ready(function() {
     $(function() {
 
         // var accordeonItem;
+        // var accordeonName;
         // var accordeonItemList;
         // var slideFlag;
         // var accordeonItemParent;
-        // var listItems;
+        // var listItems;        
+
+        $(".show-accordeon").click(function() {
+
+            if( bodyWidth <= 700 ) {
+
+                accordeonName = $(this).attr("data-accordeon");
+
+                $(".left-nav-block[data-accordeon = '"+ accordeonName +"']").animate({"left" : 0 + "%"}, 400);
+
+            }
+
+        });
+
+        $(this).keydown(function(eventObject){
+
+            if( bodyWidth <= 700 ) {
+
+                if (eventObject.which == 27) {
+
+                    $(".left-nav-block").animate({"left" : -110 + "%"}, 400);
+
+                }
+
+            }
+
+        });
+
+        $(".close-accordeon").click(function() {
+
+            if( bodyWidth <= 700 ) {
+
+                accordeonName = $(this).closest(".left-nav-block").attr("data-accordeon");
+
+                $(".left-nav-block[data-accordeon = '"+ accordeonName +"']").animate({"left" : -110 + "%"}, 400);
+
+            }
+
+        });
 
         $(".accordeon").each(function() {
 
