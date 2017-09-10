@@ -172,7 +172,7 @@ $(document).ready(function() {
 
         });
 
-        $(".close-accordeon").click(function() {
+        $(".close-accordeon, .accordeon li a").click(function() {
 
             if( bodyWidth <= 700 ) {
 

@@ -1700,9 +1700,57 @@
 	    min-height: auto;
 	}
 
+	.accordeon li span {
+		display: block;
+	}
+
 	.left-nav-block-list li a {
+		display: block;
 	    font-size: 18px;
 	    line-height: 18px;
+	    padding: 7px 1%;
+
+	    -webkit-transition-property: background;
+	    -webkit-transition-duration: .3s;
+	    -webkit-transition-timing-function: ease;
+
+	    -moz-transition-property: background;
+	    -moz-transition-duration: .3s;
+	    -moz-transition-timing-function: ease;
+
+	    -ms-transition-property: background;
+	    -ms-transition-duration: .3s;
+	    -ms-transition-timing-function: ease;
+
+	    -o-transition-property: background;
+	    -o-transition-duration: .3s;
+	    -o-transition-timing-function: ease;
+
+	    transition-property: background;
+	    transition-duration: .3s;
+	    transition-timing-function: ease;
+
+	}
+
+	.left-nav-block-list li a:link,
+	.left-nav-block-list li a:visited {
+	    color: #353535;
+	    background: rgba(255, 255, 255, 0);
+	    border-bottom: none;
+	}
+
+
+	.left-nav-block-list li a.active,
+	.left-nav-block-list li a:active {
+	    color: #5d8da5;
+	    background: rgba(255, 255, 255, 1);
+	    border-bottom: none;
+	}
+
+	.left-nav-block-list li a:hover {
+	    color: #5d8da5;
+	    background: rgba(255, 255, 255, 1);
+	    border-bottom: none;
 	}
 
 	.slide-two-cols .col-1 {
